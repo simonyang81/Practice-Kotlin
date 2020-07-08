@@ -12,24 +12,18 @@ class Main {
         fun main(args: Array<String>) {
             while (true) run breaking@{
 
-                println("This mac has '${Runtime.getRuntime().availableProcessors()}' available processors")
+//                println("This mac has '${Runtime.getRuntime().availableProcessors()}' available processors")
 
-                println("*********************************************")
-                println("* 0, Print IAM client info.                 *")
-                println("* 1, Kotlin Steam.                          *")
-                println("* 2, Java Steam.                            *")
-                println("* 3, Kotlin Collect.                        *")
-                println("* 4, Java Collect.                          *")
-                println("* 5, Kotlin Time function.                  *")
-                println("* 6, Java Time function.                    *")
-                println("* 7, Kotlin Generic.                        *")
-                println("* 8, Java Generic.                          *")
-                println("* 9, Kotlin List Collector.                 *")
-                println("* a, Kotlin Coroutines.                     *")
-                println("* b, Java Parallel.                         *")
-                println("* c, Java Collection.                       *")
-                println("* d, Java Fork / Join.                      *")
-                println("*********************************************")
+                println("************************************************************")
+                println("* 0, Print IAM client info | 1, Kotlin Steam.              *")
+                println("* 2, Java Steam.           | 3, Kotlin Collect.            *")
+                println("* 4, Java Collect.         | 5, Kotlin Time function.      *")
+                println("* 6, Java Time function.   | 7, Kotlin Generic.            *")
+                println("* 8, Java Generic.         | 9, Kotlin List Collector.     *")
+                println("* a, Kotlin Coroutines.    | b, Java Parallel.             *")
+                println("* c, Java Collection.      | d, Java Fork / Join.          *")
+                println("* e, Java Optional.        | f, Java Local Date/Time.      *")
+                println("************************************************************")
 
                 val menuNumber = readLine()
                 if (menuNumber.isNullOrBlank()) {
@@ -109,6 +103,16 @@ class Main {
                         val result = ForkJoinPool().invoke(task)
                         println("1 to 1,000,000 sum is $result")
                         println("\n -------------- Java Fork / Join End ---------------\n")
+                    }
+                    "e" -> {
+                        println("\n -------------- Java Optional ---------------\n")
+                        JavaOptional().test()
+                        println("\n -------------- Java Optional End ---------------\n")
+                    }
+                    "f" -> {
+                        println("\n -------------- Java Local Data/Time ---------------\n")
+                        JavaLocalDate().test()
+                        println("\n -------------- Java Local Data/Time End ---------------\n")
                     }
 
                     else -> {
