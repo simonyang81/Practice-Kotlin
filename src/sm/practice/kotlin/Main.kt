@@ -23,6 +23,7 @@ class Main {
                 println("* a, Kotlin Coroutines.    | b, Java Parallel.             *")
                 println("* c, Java Collection.      | d, Java Fork / Join.          *")
                 println("* e, Java Optional.        | f, Java Local Date/Time.      *")
+                println("* g, Kotlin GlobalScope.   | h, Kotlin Callback            *")
                 println("************************************************************")
 
                 val menuNumber = readLine()
@@ -113,6 +114,16 @@ class Main {
                         println("\n -------------- Java Local Data/Time ---------------\n")
                         JavaLocalDate().test()
                         println("\n -------------- Java Local Data/Time End ---------------\n")
+                    }
+                    "g" -> {
+                        println("\n -------------- Kotlin GlobalScope ---------------\n")
+                        KotlinCoroutines().testGlobalScope()
+                        println("\n -------------- Kotlin GlobalScope End ---------------\n")
+                    }
+                    "h" -> {
+                        println("\n -------------- Kotlin Callback ---------------\n")
+                        KotlinCallback().test() {s, i -> "I'm $s, $i years old" }
+                        println("\n -------------- Kotlin Callback End ---------------\n")
                     }
 
                     else -> {

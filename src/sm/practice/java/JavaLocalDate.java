@@ -18,7 +18,14 @@ public class JavaLocalDate {
         System.out.println("time: " + datetime.toLocalTime());
 
         var now = LocalDate.of(2020, 7, 8);
-        System.out.println(now.with(TemporalAdjusters.dayOfWeekInMonth(-1, DayOfWeek.MONDAY)));
+        System.out.println(now.with(TemporalAdjusters.dayOfWeekInMonth(0, DayOfWeek.MONDAY)));
+
+        // 当月第一天
+        System.out.println(now.with(TemporalAdjusters.firstDayOfMonth()));
+        // 当月最后一天
+        System.out.println(now.with(TemporalAdjusters.lastDayOfMonth()));
+        // 下个月第一天
+        System.out.println(now.with(TemporalAdjusters.firstDayOfNextMonth()));
 
     }
 

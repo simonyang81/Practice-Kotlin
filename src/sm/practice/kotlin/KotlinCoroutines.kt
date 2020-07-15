@@ -1,9 +1,9 @@
 package sm.practice.kotlin
 
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.sendBlocking
+import java.util.*
 
 class KotlinCoroutines {
 
@@ -34,6 +34,28 @@ class KotlinCoroutines {
         repeat(20) {
             println("-->> main thread: $it")
         }
+
+    }
+
+    fun testGlobalScope() {
+
+        GlobalScope.launch {
+            println("---------")
+            val channel = Channel<String>()
+//            launch {
+
+            async {
+                channel.send("11")
+            }
+            println("")
+            delay(5000)
+
+            val data = channel.receive()
+            println("data: $data")
+
+        }
+
+        println("---------")
 
     }
 
